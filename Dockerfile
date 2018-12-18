@@ -1,2 +1,2 @@
-FROM: debian:latest
+FROM debian:latest
 MAINTAINER bitskrieg
