@@ -1,11 +1,11 @@
-FROM debian:latest
+FROM alpine:latest
 MAINTAINER bitskrieg
 
-RUN apt-get update
-RUN apt-get install -y python-dev build-essential curl
-RUN curl https://bootstrap.pypa.io/get-pip.py -o install-pip.py
-RUN python install-pip.py
+RUN apk add --update --no-cache python py-pip git build-base iputils bash curl linux-headers
+
 RUN pip install --upgrade six
 RUN pip install python-openstackclient python-heatclient python-designateclient python-muranoclient python-zunclient
 
-CMD ["bash"]
+WORKDIR /workspace
+
+CMD ["sh"]
